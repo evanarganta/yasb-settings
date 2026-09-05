@@ -1,22 +1,23 @@
+@import url("yasb_colors.css");
+
 :root {
-    /* --- TINTED CATPPUCCIN PALETTE --- */
     --base: #1e1e2e;
-    --mantle:      #111107; 
-    --crust:       #111107; 
-    --crust-alpha: rgba(17, 17, 7, 0.72);
-    --text:        #c3c3c1;
-    --subtext0:    #c3c3c1;
-    --subtext1:    #c3c3c1;
-    --surface0:    #2C2A1C; /* No longer blue, now matches wallpaper accent */
-    --surface1:    #3F3A2A; 
-    --surface2:    #3F3A2A;
-    --teal:        #c8b694;
-    --blue:        #c8b694;
-    --red:         #c8b694;
-    --green:       #c8b694;
-    --yellow:      #c8b694;
-    --pink:        #c8b694;
-    --sky:         #c8b694;
+    --mantle:      #0b101b; 
+    --crust:       #0b101b; 
+    --crust-alpha: rgba(11, 16, 27, 0.72);
+    --text:        #c2c3c6;
+    --subtext0:    #c2c3c6;
+    --subtext1:    #c2c3c6;
+    --surface0:    #242934;
+    --surface1:    #343A45; 
+    --surface2:    #343A45;
+    --teal:        #b1b8c4;
+    --blue:        #b1b8c4;
+    --red:         #b1b8c4;
+    --green:       #b1b8c4;
+    --yellow:      #b1b8c4;
+    --pink:        #b1b8c4;
+    --sky:         #b1b8c4;
 }
 
 * {
@@ -24,6 +25,19 @@
     color: var(--text);
     font-weight: 600;
     font-family: "JetBrainsMono NFP";
+}
+
+.tooltip,
+.dark.tooltip {
+    background-color: rgba(11, 16, 27, 0.25);
+    border-radius: 7px;
+    color: var(--yasb-accent-light3);
+    padding: 6px 10px;
+    font-size: 12px;
+    font-family: "Segoe UI";
+    font-weight: 500;
+    margin-top: 4px;
+    backdrop-filter: blur(6px);
 }
 
 .yasb-bar {
@@ -56,11 +70,9 @@
 .komorebi-active-layout .label {
     font-weight: 600;
     padding: 2px 0 0 0;
-    /* CHANGED: Make layout label pop */
     color: var(--teal);
 }
 
-/* WIDGET CONTAINERS - These get colors from your script now */
 .apps-widget .widget-container,
 .komorebi-workspaces .widget-container,
 .komorebi-active-layout .widget-container {
@@ -185,7 +197,6 @@
 
 .power-menu-popup .button .icon {
     font-size: 64px;
-    padding-top: 32px;
     color: var(--subtext1);
 }
 
@@ -565,9 +576,43 @@
     background-color: var(--red);
 }
 
+.taskbar-preview {
+    background-color: rgba(11, 16, 27, 1);
+    border-radius: 8px;
+}
+
+.taskbar-preview .preview-item {
+    background-color: transparent;
+}
+
+.taskbar-preview .preview-item:hover {
+    background-color: rgba(154, 190, 184, 0.14);
+}
+
+.taskbar-preview .header .title {
+    color: var(--yasb-accent-light3);
+    font-family: "Segoe UI";
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.taskbar-preview .close-button {
+    color: var(--yasb-accent-light2);
+    background-color: transparent;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.taskbar-preview .close-button:hover {
+    color: var(--yasb-accent-light3);
+    background-color: rgba(154, 190, 184, 0.22);
+}
+
 .whkd-widget .icon {
     font-size: 14px;
     color: var(--text);
+    margin-bottom: 5px;
 }
 
 .wallpapers-widget .icon {
@@ -693,15 +738,18 @@
 /* MEDIA WIDGET */
 .media-widget {
     padding: 0;
-    padding-left: 2px;
     margin: 0;
     border-radius: 50px;
-    margin-right: 8px;
+}
+
+.media-widget .widget-container {
+    padding: 0;
 }
 
 .media-widget .label {
     color: var(--text);
     background-color: transparent;
+    padding: 0;
 }
 
 .media-widget .btn {
@@ -728,25 +776,60 @@
     background-color: transparent;
 }
 
+.media-icon-widget {
+    padding: 0 6px;
+}
+
+.media-icon-widget .label {
+    color: var(--teal);
+    font-size: 15px;
+}
+
+.notification-widget,
+.wifi-widget,
+.volume-widget,
+.power-menu-widget {
+    padding: 0 6px;
+}
+
+.notification-widget {
+    margin-left: 12px;
+}
+
+.wifi-widget,
+.volume-widget {
+    margin-left: 6px;
+}
+
 .media-menu {
-    min-width: 340px;
-    background-color: var(--mantle);
-    border: 1px solid var(--surface0);
-    border-radius: 10px;
-    padding: 20px;
+    min-width: 540px;
+    max-width: 540px;
+    background-color: #121212;
+    border: 1px solid #2a2a2a;
+    border-radius: 8px;
+    padding: 10px;
+    font-family: "Segoe UI";
+}
+
+.media-menu .thumbnail {
+    min-width: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    max-height: 120px;
+    margin-right: 12px;
 }
 
 .media-menu .title {
-    color: var(--text);
-    font-size: 18px;
+    color: var(--yasb-accent-light2);
+    font-size: 16px;
     font-weight: 700;
-    margin-bottom: 4px;
+    margin-left: 0;
 }
 
 .media-menu .artist {
-    color: var(--subtext0);
-    font-size: 15px;
-    margin-bottom: 16px;
+    color: #d0d0d0;
+    font-size: 12px;
+    margin-left: 0;
 }
 
 .media-menu .source {
@@ -754,9 +837,9 @@
     font-weight: 700;
     border-radius: 12px;
     padding: 4px 10px;
-    margin-bottom: 16px;
-    color: var(--crust);
-    background-color: var(--overlay1);
+    margin: 0 0 8px 0;
+    color: #121212;
+    background-color: #b3b3b3;
 }
 
 .media-menu .source.brave {
@@ -765,44 +848,46 @@
 }
 
 .media-menu .source.spotify {
-    background-color: var(--green);
-    color: var(--base);
+    background-color: var(--yasb-accent);
+    color: var(--yasb-background);
 }
 
 .media-menu .btn {
     font-family: "Segoe Fluent Icons";
-    font-size: 18px;
-    border-radius: 76%;
-    min-width: 44px;
-    max-width: 44px;
-    min-height: 44px;
-    max-height: 44px;
-    margin: 0 8px;
+    font-size: 16px;
+    border-radius: 16px;
+    min-width: 32px;
+    max-width: 32px;
+    min-height: 32px;
+    max-height: 32px;
+    margin: 0 3px;
     color: var(--text);
-    background-color: var(--surface0);
+    background-color: transparent;
+    border: none;
     transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .media-menu .btn:hover {
-    background-color: var(--surface1);
+    background-color: #2a2a2a;
     transform: scale(1.1);
     border-radius: 50%;
 }
 
 .media-menu .btn.play {
-    min-width: 60px;
-    max-width: 60px;
-    min-height: 60px;
-    max-height: 60px;
-    font-size: 28px;
-    color: var(--base);
-    background-color: var(--blue);
+    min-width: 46px;
+    max-width: 46px;
+    min-height: 46px;
+    max-height: 46px;
+    font-size: 19px;
+    color: var(--yasb-background);
+    background-color: var(--yasb-accent);
     border-radius: 50%;
+    margin: 0 5px;
 }
 
 .media-menu .btn.play:hover {
     transform: scale(1.1);
-    filter: brightness(1.15);
+    background-color: var(--yasb-accent-light1);
 }
 
 .media-menu .btn.disabled {
@@ -919,6 +1004,7 @@
 .active-window-widget .widget-container .label {
     color: var(--sky);
 }
+
 
 
 
